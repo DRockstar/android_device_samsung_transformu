@@ -1,0 +1,5 @@
+This was ported from Epic 4G cwm device files....
+
+the kernel here is still from epic 4g but is not the right type
+
+with a little editing this should be able to work with the right boot.img kernel
