@@ -21,7 +21,8 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 TARGET_PREBUILT_KERNEL := device/samsung/transformu/kernel
 
-#BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/samsung/transformu/recovery/recovery_ui.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/transformu/recovery/graphics.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/samsung/transformu/recovery/recovery_ui.c
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 

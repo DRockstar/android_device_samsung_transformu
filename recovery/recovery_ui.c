@@ -61,27 +61,37 @@ int device_reboot_now(volatile char* key_pressed, int key_code) {
 int device_handle_key(int key_code, int visible) {
     if (visible) {
         switch (key_code) {
-            case 51:  // side volume up button
-            case 48:  // keypad left key
-            case 39:  // keypad up key
-                return HIGHLIGHT_UP;
-
-            case 52:  // side volume down button
-            case 50:  // keypad right key
-            case 49:  // keypad down key
+            case KEY_CAPSLOCK:
+            case KEY_DOWN:
+            case KEY_VOLUMEDOWN:
                 return HIGHLIGHT_DOWN;
 
-            case 102: // menu cap key
-            case 53:  // keypad home key 
-            case 46:  // side camera button full press 
-            case 40:  // keypad enter/return key
+            case KEY_LEFTSHIFT:
+            case KEY_UP:
+            case KEY_VOLUMEUP:
+                return HIGHLIGHT_UP;
+
+            case KEY_POWER:
+                if (ui_get_showing_back_button()) {
+                    return SELECT_ITEM;
+                }
+                if (!get_allow_toggle_display())
+                    return GO_BACK;
+                break;
+            case KEY_LEFTBRACE:
+            case KEY_ENTER:
+            case BTN_MOUSE:
+            case KEY_CENTER:
+            case KEY_CAMERA:
+            case KEY_F21:
+            case KEY_SEND:
+            case KEY_HOME:
                 return SELECT_ITEM;
             
-            case 158: // back cap key
-            case 116: // side power button
-            case 57:  // keypad back key 
-            case 30:  // keypad delete key
-                if (!get_allow_toggle_display())
+            case KEY_END:
+            case KEY_BACKSPACE:
+            case KEY_SEARCH:        
+        if (!get_allow_toggle_display())
                     return GO_BACK;
         }
     }
